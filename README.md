@@ -39,12 +39,16 @@ DARGON expects all problem instances to be organized under a unified `instances/
 
 2. [CVRPLib](https://galgos.inf.puc-rio.br/cvrplib/index.php/en/instances)
 
-3. [Bin Packing problem](https://github.com/google-deepmind/funsearch/blob/main/bin_packing/bin_packing.ipynb)
+3. [CVRP XML100](https://github.com/RoyalSkye/Omni-VRP)
 
-4. Multiple Knapsack Problem, generate with `generate_instance.py`, we provide the generated data in `instances/`
+4. [Bin Packing problem](https://github.com/google-deepmind/funsearch/blob/main/bin_packing/bin_packing.ipynb)
 
-5. Assignment problem, generate with `generate_instance.py`, we provide the generated data in `instances/`
+5. Multiple Knapsack Problem, generate with `generate_instance.py`, we provide the generated data in `instances/`
 
+6. Assignment problem, generate with `generate_instance.py`, we provide the generated data in `instances/`
+
+
+Simply unzip `instances.zip`.
 
 ---
 
