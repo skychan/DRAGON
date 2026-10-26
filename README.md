@@ -1,10 +1,10 @@
-# DARGON
+# DRAGON
 
 This repository contains the official implementation for the **AAMAS 2026** paper:
 
-> **DARGON: LLM-Driven Decomposition and Reconstruction Agents for Large-Scale Combinatorial Optimization**
+> **DRAGON: LLM-Driven Decomposition and Reconstruction Agents for Large-Scale Combinatorial Optimization**
 
-DARGON introduces a multi-agent framework where large language models (LLMs) are used to **decompose** complex combinatorial optimization problems into tractable subproblems and **reconstruct** high-quality global solutions through iterative coordination.
+DRAGON introduces a multi-agent framework where large language models (LLMs) are used to **decompose** complex combinatorial optimization problems into tractable subproblems and **reconstruct** high-quality global solutions through iterative coordination.
 
 Check [paper](https://arxiv.org/abs/2601.06502) for more details.
 
@@ -15,13 +15,13 @@ Check [paper](https://arxiv.org/abs/2601.06502) for more details.
 We recommend using a Conda environment.
 
 ```bash
-conda create -n dargon python=3.10 -y
-conda activate dargon
+conda create -n dragon python=3.10 -y
+conda activate dragon
 pip install uv
 uv pip install -r requirements.txt
 ```
 
-DARGON relies on LLM APIs (e.g., OpenAI and DeepSeek). Create a `.env` file in the project root and configure it as follows:
+DRAGON relies on LLM APIs (e.g., OpenAI and DeepSeek). Create a `.env` file in the project root and configure it as follows:
 
 ```txt
 OPENAI_API_KEY = 'sk-proj-xxxxxx'
@@ -33,7 +33,7 @@ DEEPSEEK_API_KEY='sk-xxxxxx'
 
 ## Dataset Preparation
 
-DARGON expects all problem instances to be organized under a unified `instances/` directory.
+DRAGON expects all problem instances to be organized under a unified `instances/` directory.
 
 1. [TSPLib](https://github.com/mastqe/tsplib)
 
@@ -168,8 +168,8 @@ We would like to express our sincere thanks to the following works:
 If you find this work useful, please consider citing:
 
 ```bibtex
-@inproceedings{dargon2026,
-  title     = {DARGON: LLM-Driven Decomposition and Reconstruction Agents for Large-Scale Combinatorial Optimization},
+@inproceedings{dragon2026,
+  title     = {DRAGON: LLM-Driven Decomposition and Reconstruction Agents for Large-Scale Combinatorial Optimization},
   author    = {Shengkai Chen and Zhiguang Cao and Jianan Zhou and Yaoxin Wu and Senthilnath Jayavelu and Zhuoyi Lin and Xiaoli Li and Shili Xiang},
   booktitle = {Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},
   year      = {2026}

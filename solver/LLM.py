@@ -1,5 +1,5 @@
 from heapq import heapify, heappush, heappop, heappushpop
-from baselines.metrics import Metrics
+from utils.metrics import Metrics
 from utils import extract_partition_from_string, extract_route_from_string, extract_assignment_from_string, extract_pack_from_string, evaluate_objective, is_feasible_solution, gather_answers, get_zones
 from openai import OpenAI
 from generate_prompts import gen_revise_prompt, gen_partition_prompt
@@ -179,38 +179,6 @@ def llm_solver(data, num_decimals = 0, save_root=None, epoch=0, revise_num = 0, 
     # best_str = sorted(p_examples, reverse=True)[0][1]
     # result = extract_route_from_string(best_str)
     # return result[0]
-
-
-def Initialize(points, x, y, start, end, num_decimals = 0):
-    '''
-    Points are exclude start and end
-    '''
-    point_coord, p_map, p_map_rev = point_reindex(points, x, y, start, end)
-
-    # # prepare for ortools
-    # locations = [point_coord[i] for i in range(len(point_coord))]
-    # X, Y = zip(*locations)
-    # ortools_route = orsolver(locations, X, Y, p_map_rev[start], p_map_rev[end])
-
-    random_traces = []
-    for _ in range(5):
-        random_trace = points[:]
-        np.random.shuffle(random_trace)
-        random_trace = [start] + random_trace + [end]
-        dist = evaluate_distance(x, y, random_trace, num_decimals)
-        random_trace_str = "<trace>" + ",".join(str(p) for p in random_trace) + "</trace>"
-        random_traces.append((-dist, random_trace_str))
-    
-    # Solve directly
-    prompt = gen_revise_prompt(point_coord, p_map_rev[start], p_map_rev[end], random_traces)
-
-    result = llm_solver(prompt, [], None, 0,  p_map_rev[start], p_map_rev[end], point_coord, best_threshold=1)
-    # Replace with LLM
-    # result = np.random.permutation(range(len(points)))
-
-    trace = [p_map[i] for i in result]
-
-    return trace
 
 
 def get_llm_response(sys_prompt, user_prompt, metric: Metrics = None):
